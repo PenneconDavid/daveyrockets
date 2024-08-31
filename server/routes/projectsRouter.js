@@ -1,32 +1,17 @@
 import express from "express";
 import Project from "../models/Project.js";
-import mongoose from "mongoose";
-import { isLoggedIn, isAdmin } from "../middlewares/authMiddleware.js";
 import cors from "cors";
+import { isLoggedIn, isAdmin } from "../middlewares/authMiddleware.js";
+
+const projectsRouter = express.Router(); // This should be defined first
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL || "https://daveyrockets.vercel.app", // Replace with your frontend URL
-  credentials: true,
+  origin: process.env.CORS_ORIGIN || "*", // Use your frontend domain in production
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // If your frontend and backend are on different domains
 };
 
 projectsRouter.use(cors(corsOptions)); // Apply CORS options to all project routes
-
-// Create a new project
-projectsRouter.post("/", isLoggedIn, isAdmin, async (req, res) => {
-  try {
-    console.log("Request body received:", req.body); // Log the received data
-    const project = new Project(req.body);
-    console.log("Project instance created:", project); // Log the created project instance
-    await project.save();
-    console.log("Project saved to database successfully.");
-    res.status(201).json(project);
-  } catch (error) {
-    console.error("Detailed error creating project:", error); // More detailed error logging
-    res
-      .status(500)
-      .json({ error: "Error creating project", details: error.message });
-  }
-});
 
 // Get all projects
 projectsRouter.get("/", async (req, res) => {
@@ -34,35 +19,93 @@ projectsRouter.get("/", async (req, res) => {
     const projects = await Project.find();
     res.status(200).json(projects);
   } catch (error) {
-    res.status(500).json({ error: "Error fetching projects" });
+    res.status(500).json({ error: error.message });
   }
 });
 
-// Update a project
-projectsRouter.put("/:id", isLoggedIn, isAdmin, async (req, res) => {
+// Get single project by MongoDB _id
+projectsRouter.get("/:id", async (req, res) => {
   try {
-    const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-    });
+    const project = await Project.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ error: "Project not found" });
     }
     res.status(200).json(project);
   } catch (error) {
-    res.status(500).json({ error: "Error updating project" });
+    res.status(500).json({ error: error.message });
   }
 });
 
-// Delete a project
-projectsRouter.delete("/:id", isLoggedIn, isAdmin, async (req, res) => {
+// Post new project (protected: only signed-in users can create projects)
+projectsRouter.post("/", isLoggedIn, async (req, res) => {
   try {
-    const project = await Project.findByIdAndDelete(req.params.id);
+    const { title, description, url } = req.body;
+    const newProject = new Project({
+      title,
+      description,
+      url,
+      author: req.user.id, // Assuming you have an 'author' field in the Project model
+    });
+    await newProject.save();
+    res.status(201).json(newProject);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Update single project (protected: only admins or the project author can edit)
+projectsRouter.put("/:id", isLoggedIn, async (req, res) => {
+  try {
+    const { title, description, url } = req.body;
+
+    const project = await Project.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ error: "Project not found" });
     }
-    res.status(200).json({ message: "Project deleted" });
+
+    if (
+      project.author.toString() !== req.user.id &&
+      req.user.role !== "admin"
+    ) {
+      return res.status(403).json({ error: "Forbidden" });
+    }
+
+    project.title = title;
+    project.description = description;
+    project.url = url;
+    await project.save();
+
+    res.json(project);
   } catch (error) {
-    res.status(500).json({ error: "Error deleting project" });
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// Delete single project (protected: only admins or the project author can delete)
+projectsRouter.delete("/:id", isLoggedIn, async (req, res) => {
+  try {
+    const project = await Project.findById(req.params.id);
+
+    if (!project) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+
+    // Check if the logged-in user is the author or an admin
+    if (
+      req.user.role !== "admin" &&
+      project.author.toString() !== req.user._id
+    ) {
+      return res
+        .status(403)
+        .json({ error: "You are not authorized to delete this project" });
+    }
+
+    // Use findByIdAndDelete to remove the project
+    await Project.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({ message: "Project deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
   }
 });
 
