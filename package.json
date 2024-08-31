@@ -1,0 +1,19 @@
+{
+  "name": "personalsite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "build:frontend": "npm run build --prefix client",
+    "build": "npm run build:frontend",
+    "start": "npm start --prefix server",
+    "dev": "npm run dev --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "uuid": "^10.0.0"
+  }
+}
