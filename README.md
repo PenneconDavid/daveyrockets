@@ -1,7 +1,7 @@
 **Brief Description:**  
 A web application that [briefly describe the purpose of the app, e.g., "allows users to manage and view blog posts, access protected user profiles, and more, built with a React frontend and a Node.js/Express backend."].
 
-Hosted URL: https://personalsite-five-sage.vercel.app/
+Hosted URL: https://daveyrockets.vercel.app
 
 ## Table of Contents
 

@@ -5,7 +5,7 @@ import { isLoggedIn, isAdmin } from "../middlewares/authMiddleware.js";
 import cors from "cors";
 
 const corsOptions = {
-  origin: process.env.CLIENT_URL || "https://personalsite-five-sage.vercel.app", // Replace with your frontend URL
+  origin: process.env.CLIENT_URL || "https://daveyrockets.vercel.app", // Replace with your frontend URL
   credentials: true,
 };
 
