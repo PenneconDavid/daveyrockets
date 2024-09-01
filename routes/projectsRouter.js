@@ -6,7 +6,7 @@ import { isLoggedIn, isAdmin } from "../middlewares/authMiddleware.js";
 const projectsRouter = express.Router(); // This should be defined first
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || "*", // Use your frontend domain in production
+  origin: process.env.CLIENT_URL, // Use your frontend domain in production
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // If your frontend and backend are on different domains
 };
