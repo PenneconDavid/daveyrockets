@@ -48,6 +48,7 @@ projectsRouter.post("/", isLoggedIn, async (req, res) => {
       author: req.user.id, // Assuming you have an 'author' field in the Project model
     });
     await newProject.save();
+    console.log("Request body:", req.body);
     res.status(201).json(newProject);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -58,6 +59,7 @@ projectsRouter.post("/", isLoggedIn, async (req, res) => {
 projectsRouter.put("/:id", isLoggedIn, async (req, res) => {
   try {
     const { title, description, link, thumbnail } = req.body; // Ensure these field names match your model
+    console.log("Request body:", req.body);
 
     const project = await Project.findById(req.params.id);
     if (!project) {
