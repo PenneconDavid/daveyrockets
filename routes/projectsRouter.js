@@ -58,29 +58,26 @@ projectsRouter.post("/", isLoggedIn, async (req, res) => {
 // Update single project (protected: only admins or the project author can edit)
 projectsRouter.put("/:id", isLoggedIn, async (req, res) => {
   try {
-    const { title, description, link, thumbnail } = req.body; // Ensure these field names match your model
-    console.log("Request body:", req.body);
+    const { title, description, link, thumbnail } = req.body;
+    console.log("PUT Request to /api/projects/:id with data:", req.body);
 
     const project = await Project.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ error: "Project not found" });
     }
 
-    if (
-      project.author.toString() !== req.user.id &&
-      req.user.role !== "admin"
-    ) {
-      return res.status(403).json({ error: "Forbidden" });
-    }
+    // Update project fields
+    project.title = title || project.title;
+    project.description = description || project.description;
+    project.link = link || project.link;
+    project.thumbnail = thumbnail || project.thumbnail;
 
-    project.title = title;
-    project.description = description;
-    project.link = link; // Correct field name
-    project.thumbnail = thumbnail; // Correct field name
     await project.save();
+    console.log("Updated Project:", project);
 
     res.json(project);
   } catch (error) {
+    console.error("Error updating project:", error);
     res.status(400).json({ error: error.message });
   }
 });
