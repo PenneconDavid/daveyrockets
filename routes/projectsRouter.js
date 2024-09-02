@@ -39,11 +39,12 @@ projectsRouter.get("/:id", async (req, res) => {
 // Post new project (protected: only signed-in users can create projects)
 projectsRouter.post("/", isLoggedIn, async (req, res) => {
   try {
-    const { title, description, url } = req.body;
+    const { title, description, url, thumbnail } = req.body;
     const newProject = new Project({
       title,
       description,
       url,
+      thumbnail,
       author: req.user.id, // Assuming you have an 'author' field in the Project model
     });
     await newProject.save();
@@ -56,7 +57,7 @@ projectsRouter.post("/", isLoggedIn, async (req, res) => {
 // Update single project (protected: only admins or the project author can edit)
 projectsRouter.put("/:id", isLoggedIn, async (req, res) => {
   try {
-    const { title, description, url } = req.body;
+    const { title, description, url, thumbnail } = req.body;
 
     const project = await Project.findById(req.params.id);
     if (!project) {
@@ -73,6 +74,7 @@ projectsRouter.put("/:id", isLoggedIn, async (req, res) => {
     project.title = title;
     project.description = description;
     project.url = url;
+    project.thumbnail = thumbnail;
     await project.save();
 
     res.json(project);
