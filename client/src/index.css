@@ -1,0 +1,26 @@
+/* TailwindCSS base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Minimize global overrides */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Only apply global font styles when absolutely necessary */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Poppins", sans-serif;
+  color: #f3eacc; /* Default text color, overridden by Tailwind classes */
+  text-align: center;
+  background-color: #282828;
+}

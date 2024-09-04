@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import path from "path";
 import { connectToDatabase } from "./db/dbconn.js";
 import { PORT } from "./config.js";
 import blogsRouter from "./routes/blogsRouter.js";
@@ -13,6 +14,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
+
+const __dirname = path.resolve();
 
 const corsOptions = {
   origin: process.env.CLIENT_URL,
@@ -41,6 +44,8 @@ app.use("/api/auth", authRouter);
 
 // Project routes
 app.use("/api/projects", projectsRouter);
+
+app.use(express.static(__dirname + "/client/build"));
 
 app.listen(PORT, () => console.log(`backend server started on port ${PORT}`));
 
