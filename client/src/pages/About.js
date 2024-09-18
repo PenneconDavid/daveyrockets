@@ -2,7 +2,7 @@ import { CONTACT_BIO, CONTACT_NAME } from "../config";
 
 function About() {
   return (
-    <div className="bg-[#282828] flex flex-col items-center justify-center py-24 px-10">
+    <div className="bg-[#282828] flex flex-col items-center justify-center py-20 px-10">
       <div className="py-20">
         <h1 className="text-6xl text-center text-[#F3EACC]">
           Hi, I'm {CONTACT_NAME}
