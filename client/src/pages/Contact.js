@@ -156,10 +156,9 @@ function Contact() {
 
       <div>
         <p className="bg-[#282828]">
-          Condimentum id auctor quis, ultricies in turpis. Vestibulum suscipit
-          commodo ante quis tincidunt. Cras posuere fringilla lectus, ac posuere
-          ligula auctor non. Mauris metus nulla, aliquet non aliquam a, lacinia
-          sed nulla. Sed quis consequat massa. In hac habitasse plate.
+          Please feel free to reach out by whatever means you prefer. All my
+          links are below, otherwise fill out the form and I'll reach out to
+          you!
         </p>
       </div>
       <div className="pt-20 bg-[#282828]">
