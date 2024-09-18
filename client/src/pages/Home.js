@@ -29,12 +29,12 @@ function Home() {
           tortor euismo.
         </p>
         <div className="flex justify-center space-x-12 mt-12">
-          <button
+          <Link
+            to="/contact"
             className="bg-lime-600 font-bold py-4 px-8 rounded-lg"
-            onClick={handleContactClick}
           >
-            Get in Touch
-          </button>
+            <button>Get in Touch</button>
+          </Link>
           <button className="border-4 border-lime-600 text-lime-600 font-bold py-4 px-8 rounded-lg">
             Download CV
           </button>
