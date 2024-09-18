@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 function Home() {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleContactClick = () => {
+    navigate("/contact"); // Navigate to the Contact page
+  };
+
   return (
     <div className="bg-[#282828] pb-80 min-h-screen flex flex-col justify-between">
       <div className="mx-auto max-w-4xl px-4 pt-20">
@@ -22,7 +29,10 @@ function Home() {
           tortor euismo.
         </p>
         <div className="flex justify-center space-x-12 mt-12">
-          <button className="bg-lime-600 font-bold py-4 px-8 rounded-lg">
+          <button
+            className="bg-lime-600 font-bold py-4 px-8 rounded-lg"
+            onClick={handleContactClick} // Add onClick event
+          >
             Get in Touch
           </button>
           <button className="border-4 border-lime-600 text-lime-600 font-bold py-4 px-8 rounded-lg">
