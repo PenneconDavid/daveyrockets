@@ -5,11 +5,12 @@ import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Adding loading state
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
+        setLoading(true); // Set loading to true before fetching
         const projectsData = await getProjects();
         setProjects(Array.isArray(projectsData) ? projectsData : []);
         setError(null);
@@ -17,7 +18,7 @@ const Projects = () => {
         console.error("Error fetching projects:", error);
         setError("Failed to load projects.");
       } finally {
-        setLoading(false); // Stop loading once data is fetched
+        setLoading(false); // Stop loading after fetching
       }
     };
 
@@ -25,7 +26,11 @@ const Projects = () => {
   }, []);
 
   if (loading) {
-    return <div className="spinner"></div>; // Display spinner when loading
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <ClipLoader color={"#FFFFFF"} size={50} /> {/* Spinner here */}
+      </div>
+    );
   }
 
   if (error) {
