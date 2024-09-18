@@ -1,13 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { Link } from "react-router-dom"; // Import useNavigate hook
 
 function Home() {
-  const navigate = useNavigate(); // Initialize useNavigate
-
-  const handleContactClick = () => {
-    navigate("/contact"); // Navigate to the Contact page
-  };
-
   return (
     <div className="bg-[#282828] pb-80 min-h-screen flex flex-col justify-between">
       <div className="mx-auto max-w-4xl px-4 pt-20">
