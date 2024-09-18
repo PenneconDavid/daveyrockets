@@ -6,26 +6,26 @@
       "use": "@vercel/node"
     },
     {
-      "src": "public/*",
+      "src": "client/build/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/client/build/static/$1"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
+      "src": "/favicon.png",
+      "dest": "/client/public/favicon.png"
     },
     {
       "src": "/manifest.json",
-      "dest": "/manifest.json"
+      "dest": "/client/build/manifest.json"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/client/build/index.html"
     }
   ]
 }
