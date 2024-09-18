@@ -20,10 +20,6 @@
       "dest": "/client/build/static/$1"
     },
     {
-      "src": "/favicon.png",
-      "dest": "/client/public/favicon.png"
-    },
-    {
       "src": "/manifest.json",
       "dest": "/client/build/manifest.json"
     },
