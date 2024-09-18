@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { getProjects } from "../api/projectAPI";
+import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Adding loading state
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const projectsData = await getProjects();
-        if (Array.isArray(projectsData)) {
-          setProjects(projectsData);
-        } else if (projectsData && projectsData.length === 0) {
-          setProjects([]);
-        } else {
-          setError("Unexpected response format.");
-        }
+        setProjects(Array.isArray(projectsData) ? projectsData : []);
+        setError(null);
       } catch (error) {
         console.error("Error fetching projects:", error);
         setError("Failed to load projects.");
+      } finally {
+        setLoading(false); // Stop loading once data is fetched
       }
     };
 
     fetchProjects();
   }, []);
+
+  if (loading) {
+    return <div className="spinner"></div>; // Display spinner when loading
+  }
 
   if (error) {
     return <div className="text-red-500 text-center">{error}</div>;

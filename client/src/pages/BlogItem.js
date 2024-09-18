@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getBlog } from "../api/blogAPI"; // Universal import
+import { getBlog } from "../api/blogAPI";
+import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
 
 const BlogItem = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Adding loading state
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
         const blogData = await getBlog(id);
         setBlog(blogData || null);
+        setError(null);
       } catch (error) {
         console.error("Error fetching blog:", error);
         setError("Failed to load blog.");
+      } finally {
+        setLoading(false); // Stop loading once data is fetched
       }
     };
 
     fetchBlog();
   }, [id]);
+
+  if (loading) {
+    return <div className="spinner"></div>; // Display spinner when loading
+  }
 
   if (error) {
     return <div className="text-red-500 text-center">{error}</div>;

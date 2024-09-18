@@ -29,19 +29,6 @@ function About() {
           career journey, this site is a place to connect and explore what’s
           next.
         </p>
-        <p className="mb-6">
-          Egestas eleifend, dapibus ac justo. Donec urna dolor, elementum in
-          egestas eleifend, dapibus ac justo. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Vestibulum dignissim fermentum diam, quis
-          imperdiet magna ultricies faucibus. In sagittis, nunc sit amet feugiat
-          auctor, tortor orci fermentum nibh.
-        </p>
-        <p>
-          In placerat urna mauris eget tortor. Aenean ac dolor velit. Aenean
-          velit nibh, condimentum id auctor quis, ultricies in turpis. Nunc
-          euismod ultrices viverra. Pellentesque ut felis lectus, non sodales
-          nibh. Quisque at augue quis tortor euismo.
-        </p>
       </div>
       <div className="my-16 max-w-4xl pb-24 text-[#F3EACC]">
         <h2 className="text-3xl py-6 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">

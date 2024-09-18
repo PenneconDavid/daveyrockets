@@ -1,45 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { getBlogs } from "../api/blogAPI";
 import { Link } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); // Adding loading state
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const blogsData = await getBlogs();
-        if (Array.isArray(blogsData)) {
-          setBlogs(blogsData);
-          setFilteredBlogs(blogsData);
-        } else if (blogsData && blogsData.length === 0) {
-          setBlogs([]);
-          setFilteredBlogs([]);
-        } else {
-          setError("Unexpected response format.");
-        }
+        setBlogs(Array.isArray(blogsData) ? blogsData : []);
+        setFilteredBlogs(Array.isArray(blogsData) ? blogsData : []);
+        setError(null);
       } catch (error) {
         console.error("Error fetching blogs:", error);
         setError("Failed to load blogs.");
+      } finally {
+        setLoading(false); // Stop loading once data is fetched
       }
     };
 
     fetchBlogs();
   }, []);
 
-  useEffect(() => {
-    const filtered = blogs.filter((blog) =>
-      blog.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredBlogs(filtered);
-  }, [searchTerm, blogs]);
-
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+  if (loading) {
+    return <div className="spinner"></div>; // Display spinner when loading
+  }
 
   if (error) {
     return <div className="text-red-500 text-center">{error}</div>;
@@ -55,7 +46,7 @@ const Blogs = () => {
           type="text"
           placeholder="Search blogs..."
           value={searchTerm}
-          onChange={handleSearchChange}
+          onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full p-2 text-[#F3EACC] bg-gray-800 rounded border border-gray-600 focus:outline-none focus:border-blue-400"
         />
       </div>
