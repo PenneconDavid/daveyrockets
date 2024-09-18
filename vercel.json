@@ -12,6 +12,10 @@
   ],
   "routes": [
     {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    },
+    {
       "src": "/static/(.*)",
       "dest": "/client/build/static/$1"
     },
