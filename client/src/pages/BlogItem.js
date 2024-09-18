@@ -27,7 +27,11 @@ const BlogItem = () => {
   }, [id]);
 
   if (loading) {
-    return <div className="spinner"></div>; // Display spinner when loading
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <ClipLoader color={"#FFFFFF"} size={50} />
+      </div>
+    );
   }
 
   if (error) {
