@@ -6,21 +6,20 @@ function Home() {
     <div className="bg-[#282828] pb-80 min-h-screen flex flex-col justify-between">
       <div className="mx-auto max-w-4xl px-4 pt-20">
         <h2 className="text-6xl my-12 font-Poppins text-center bg-[#282828] font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
-          I do code and love learning about it!
+          I'm David, my friends call me Davey Rockets, and I'm a Full Stack
+          Engineer!
         </h2>
         <p className="mb-12 bg-[#282828] py-16 text-lg">
-          I am an entry-level full-stack software engineer with over [0] years
-          of professional experience, specializing in [specialty x, y, and z].
-          My expertise lies in [architectures, applications, and languages q, r,
-          s]. Egestas eleifend, dapibus ac justo. Donec urna dolor, elementum in
-          egestas eleifend, dapibus ac justo. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Vestibulum dignissim fermentum diam, quis
-          imperdiet magna ultricies faucibus. In sagittis, nunc sit amet feugiat
-          auctor, tortor orci fermentum nibh. In placerat urna mauris eget
-          tortor. Aenean ac dolor velit. Aenean velit nibh, condimentum id
-          auctor quis, ultricies in turpis. Nunc euismod ultrices viverra.
-          Pellentesque ut felis lectus, non sodales nibh. Quisque at augue quis
-          tortor euismod..
+          From M&A spreadsheets to full-stack sprints, I’ve traded in my
+          calculator for code! As an entry-level full-stack software engineer, I
+          bring a unique blend of strategic thinking and technical execution to
+          every project. While I’m just getting started in the coding world, my
+          passion for building scalable, efficient applications is growing every
+          day. With hands-on experience in JavaScript, React.js, Node.js, and
+          MongoDB, I’m diving deep into the world of software development,
+          learning new skills and applying them to real-world challenges.
+          Whether it's crafting smooth user interfaces or designing efficient
+          back-end systems, I love creating solutions that make an impact.
         </p>
         <div className="flex justify-center space-x-12 mt-12">
           <Link
