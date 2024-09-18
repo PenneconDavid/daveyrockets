@@ -25,7 +25,7 @@ function Home() {
         <div className="flex justify-center space-x-12 mt-12">
           <Link
             to="/contact"
-            className="bg-lime-600 font-bold py-4 px-8 rounded-lg"
+            className="bg-lime-600 font-bold py-4 px-8 rounded-lg flex justify-center items-center"
           >
             Get in Touch
           </Link>
