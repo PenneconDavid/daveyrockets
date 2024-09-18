@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
 
 function Home() {
   const navigate = useNavigate(); // Initialize useNavigate
@@ -31,7 +31,7 @@ function Home() {
         <div className="flex justify-center space-x-12 mt-12">
           <button
             className="bg-lime-600 font-bold py-4 px-8 rounded-lg"
-            onClick={handleContactClick} // Add onClick event
+            onClick={handleContactClick}
           >
             Get in Touch
           </button>
