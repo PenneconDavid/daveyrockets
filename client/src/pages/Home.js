@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import useNavigate hook
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -20,7 +20,7 @@ function Home() {
           tortor. Aenean ac dolor velit. Aenean velit nibh, condimentum id
           auctor quis, ultricies in turpis. Nunc euismod ultrices viverra.
           Pellentesque ut felis lectus, non sodales nibh. Quisque at augue quis
-          tortor euismo.
+          tortor euismod.
         </p>
         <div className="flex justify-center space-x-12 mt-12">
           <Link
