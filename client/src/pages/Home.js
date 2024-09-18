@@ -33,7 +33,7 @@ function Home() {
             to="/contact"
             className="bg-lime-600 font-bold py-4 px-8 rounded-lg"
           >
-            <button>Get in Touch</button>
+            Get in Touch
           </Link>
           <button className="border-4 border-lime-600 text-lime-600 font-bold py-4 px-8 rounded-lg">
             Download CV
