@@ -27,7 +27,7 @@ const Projects = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        <ClipLoader color={"#FFFFFF"} size={50} /> {/* Spinner here */}
+        <ClipLoader color={"#FFFFFF"} size={50} />
       </div>
     );
   }
@@ -48,13 +48,19 @@ const Projects = () => {
               key={project._id}
               className="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Displaying the project thumbnail link as a page preview */}
-              <iframe
-                src={project.thumbnail} // Assuming 'thumbnail' holds the URL for the page preview
-                className="w-full h-64 rounded-t-lg"
-                title={project.title}
-                sandbox="allow-scripts allow-same-origin"
-              ></iframe>
+              {/* Displaying the project thumbnail link as a responsive page preview */}
+              <div className="aspect-w-4 aspect-h-3">
+                <iframe
+                  src={project.thumbnail} // Assuming 'thumbnail' holds the URL for the page preview
+                  className="w-full h-full rounded-t-lg"
+                  title={project.title}
+                  sandbox="allow-scripts allow-same-origin"
+                  style={{
+                    transform: "scale(0.8)",
+                    transformOrigin: "top left",
+                  }}
+                ></iframe>
+              </div>
               <div className="p-4">
                 <h2 className="text-2xl font-semibold bg-gray-800 text-lime-600">
                   {project.title}
