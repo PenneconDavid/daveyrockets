@@ -50,7 +50,7 @@ function ContactForm() {
       <form
         action="#"
         method="POST"
-        className="mx-auto mt-16 max-w-xl sm:mt-20 bg-white shadow-lg rounded px-8 py-8"
+        className="mx-auto mt-10 md:mt-16 max-w-xl sm:mt-20 bg-white shadow-lg rounded px-6 md:px-8 py-6 md:py-8"
         onSubmit={handleSubmit}
       >
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">

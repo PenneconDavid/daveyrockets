@@ -4,15 +4,15 @@ function About() {
   return (
     <div className="bg-[#282828] flex flex-col items-center justify-center py-20 px-10">
       <div className="py-20">
-        <h1 className="text-6xl text-center text-[#F3EACC]">
+        <h1 className="text-4xl md:text-6xl text-center text-[#F3EACC]">
           Hi, I'm {CONTACT_NAME}
         </h1>
       </div>
-      <div className="my-16 max-w-4xl text-[#F3EACC]">
-        <h2 className="text-3xl mb-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
+      <div className="my-8 md:my-16 max-w-4xl text-[#F3EACC]">
+        <h2 className="text-2xl md:text-3xl mb-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
           About Myself
         </h2>
-        <p className="mb-8">{CONTACT_BIO}</p>
+        <p className="text-base md:text-lg">{CONTACT_BIO}</p>
       </div>
       <div className="my-16 max-w-4xl pb-24 text-[#F3EACC]">
         <h2 className="text-3xl py-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000ff]">

@@ -42,10 +42,10 @@ const Blogs = () => {
 
   return (
     <div className="container bg-[#282828] mx-auto p-4 pb-40 max-w-6xl">
-      <h1 className="text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF] mb-8 py-10 bg-inherit">
-        Blogs
+      <h1 className="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF] mb-6 md:mb-8 py-6 md:py-10">
+        Words, Quotes, and Thoughts...
       </h1>
-      <div className="mb-6 bg-inherit">
+      <div className="mb-4 md:mb-6 bg-inherit">
         <input
           type="text"
           placeholder="Search blogs..."

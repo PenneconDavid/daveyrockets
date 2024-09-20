@@ -49,14 +49,14 @@ const Projects = () => {
               className="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               {/* Displaying the project thumbnail link as a responsive page preview */}
-              <div className="relative w-full h-72 overflow-hidden rounded-t-lg">
+              <div className="relative w-full h-64 md:h-72 overflow-hidden rounded-t-lg">
                 <iframe
                   src={project.thumbnail} // Assuming 'thumbnail' holds the URL for the page preview
                   className="absolute top-0 left-0 w-full h-full"
                   title={project.title}
                   sandbox="allow-scripts allow-same-origin"
                   style={{
-                    transform: "scale(0.5)", // Shrinking the width to fit the frame
+                    transform: "scale(0.6)", // Shrinking the width to fit the frame
                     transformOrigin: "top left", // Ensuring scaling is from the top-left corner
                     width: "200%", // Expanding the iframe content width for full view
                     height: "200%", // Keeping height consistent to avoid breaking scale
