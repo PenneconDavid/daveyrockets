@@ -5,12 +5,11 @@ import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true); // Adding loading state
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        setLoading(true); // Set loading to true before fetching
         const projectsData = await getProjects();
         setProjects(Array.isArray(projectsData) ? projectsData : []);
         setError(null);
@@ -18,7 +17,7 @@ const Projects = () => {
         console.error("Error fetching projects:", error);
         setError("Failed to load projects.");
       } finally {
-        setLoading(false); // Stop loading after fetching
+        setLoading(false); // Stop loading once data is fetched
       }
     };
 
@@ -49,11 +48,13 @@ const Projects = () => {
               key={project._id}
               className="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <img
-                src={project.thumbnail}
-                alt={project.title}
-                className="w-full h-48 object-cover rounded-t-lg"
-              />
+              {/* Displaying the project thumbnail link as a page preview */}
+              <iframe
+                src={project.thumbnail} // Assuming 'thumbnail' holds the URL for the page preview
+                className="w-full h-64 rounded-t-lg"
+                title={project.title}
+                sandbox="allow-scripts allow-same-origin"
+              ></iframe>
               <div className="p-4">
                 <h2 className="text-2xl font-semibold bg-gray-800 text-lime-600">
                   {project.title}
