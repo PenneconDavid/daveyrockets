@@ -8,16 +8,18 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="bg-[#282828] p-4 flex justify-between items-center">
-        <div className="flex items-center">
-          {/* David Seibold text */}
+      <nav className="bg-[#282828] p-4 flex justify-between items-center flex-wrap">
+        <div className="flex items-center mb-4 sm:mb-0">
           <span className="text-white font-bold text-lg mr-4">
             &#123; David Seibold &#125;
           </span>
-          {/* Logo */}
-          <img src={logo} alt="logo" className="w-10 h-10 rounded-full" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
+          />
         </div>
-        <ul className="flex space-x-6">
+        <ul className="flex space-x-6 flex-col sm:flex-row sm:space-x-6">
           <li>
             <Link to="/" className="text-white hover:text-gray-400">
               Home
@@ -74,7 +76,11 @@ const Navigation = () => {
 
       {/* Centered medium-sized logo below the navigation bar */}
       <div className="flex justify-center p-4 bg-[#282828]">
-        <img src={logo} alt="logo" className="w-80 h-80 rounded-full" />
+        <img
+          src={logo}
+          alt="logo"
+          className="w-40 h-40 sm:w-80 sm:h-80 rounded-full"
+        />
       </div>
     </>
   );

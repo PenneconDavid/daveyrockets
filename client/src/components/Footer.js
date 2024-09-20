@@ -3,7 +3,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE, COPYRIGHT_INFO } from "../config.js";
 function Footer() {
   return (
     <footer className="bg-[#282828] text-gray-400 w-full py-6">
-      <div className="container mx-auto flex justify-around">
+      <div className="container mx-auto flex flex-col sm:flex-row justify-around space-y-6 sm:space-y-0">
         <div className="text-center">
           <p className="font-semibold">{"{ David Seibold }"}</p>
         </div>
@@ -47,7 +47,7 @@ function Footer() {
         </div>
       </div>
       <div className="bg-[#282828] text-gray-500 text-sm py-4 mt-4">
-        <div className="container mx-auto flex justify-start px-6">
+        <div className="container mx-auto flex justify-center sm:justify-start px-6">
           <p>{COPYRIGHT_INFO}</p>
         </div>
       </div>
