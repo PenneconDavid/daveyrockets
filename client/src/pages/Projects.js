@@ -56,7 +56,7 @@ const Projects = () => {
                   title={project.title}
                   sandbox="allow-scripts allow-same-origin"
                   style={{
-                    transform: "scale(0.6)", // Shrinking the width to fit the frame
+                    transform: "scale(0.5)", // Shrinking the width to fit the frame
                     transformOrigin: "top left", // Ensuring scaling is from the top-left corner
                     width: "200%", // Expanding the iframe content width for full view
                     height: "200%", // Keeping height consistent to avoid breaking scale
