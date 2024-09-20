@@ -46,11 +46,11 @@ const BlogItem = () => {
 
   return (
     <div className="container bg-[#282828] mx-auto p-6 max-w-[800px]">
-      <h1 className="text-[55px] font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF] mb-8">
+      <h1 className="text-[36px] md:text-[55px] font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF] mb-6 md:mb-8">
         {blog.title}
       </h1>
       <div className="bg-[#1e1e1e] p-8 rounded-lg shadow-lg min-h-[400px]">
-        <p className="text-[#F3EACC] text-[20px] text-center leading-relaxed mb-8">
+        <p className="text-[#F3EACC] text-[18px] md:text-[20px] text-center leading-relaxed mb-6 md:mb-8">
           {blog.content}
         </p>
         <div className="text-center mt-8">
