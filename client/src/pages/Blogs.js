@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet"; // Add this import
+import { Helmet } from "react-helmet";
 import { getBlogs } from "../api/blogAPI";
 import { Link } from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader"; // Importing spinner
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredBlogs, setFilteredBlogs] = useState([]);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Adding loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -22,12 +22,22 @@ const Blogs = () => {
         console.error("Error fetching blogs:", error);
         setError("Failed to load blogs.");
       } finally {
-        setLoading(false); // Stop loading once data is fetched
+        setLoading(false);
       }
     };
 
     fetchBlogs();
   }, []);
+
+  // Modify search logic to include both title and content
+  useEffect(() => {
+    const filtered = blogs.filter(
+      (blog) =>
+        blog.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        blog.content.toLowerCase().includes(searchTerm.toLowerCase()) // Searching both title and content
+    );
+    setFilteredBlogs(filtered);
+  }, [searchTerm, blogs]);
 
   return (
     <>
@@ -47,7 +57,6 @@ const Blogs = () => {
           property="og:description"
           content="Explore blogs covering software development, M&A, and the tech industry, written by David Seibold."
         />
-        {/* <meta property="og:image" content="https://daveyrockets.me/og-blogs-image.jpg" />  Replace with your actual image URL */}
         <meta property="og:url" content="https://daveyrockets.me/blogs" />
       </Helmet>
 
