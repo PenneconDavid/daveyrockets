@@ -15,7 +15,7 @@ const Navigation = () => {
           </span>
           <img
             src={logo}
-            alt="logo"
+            alt="David Seibold's personal logo"
             className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
           />
         </div>
@@ -78,7 +78,7 @@ const Navigation = () => {
       <div className="flex justify-center p-4 bg-[#282828]">
         <img
           src={logo}
-          alt="logo"
+          alt="David Seibold's personal logo"
           className="w-40 h-40 sm:w-80 sm:h-80 rounded-full"
         />
       </div>
