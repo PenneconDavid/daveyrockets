@@ -54,7 +54,7 @@ function About() {
             explore what’s next.
           </p>
         </div>
-        <div className="my-8 max-w-4xl pb-12 text-[#F3EACC]">
+        <div className="my-4 max-w-4xl pb-12 text-[#F3EACC]">
           <h2 className="text-3xl py-4 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
             Skills
           </h2>
