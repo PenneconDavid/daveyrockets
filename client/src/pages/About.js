@@ -38,8 +38,8 @@ function About() {
           </h2>
           <p className="text-base md:text-lg">{CONTACT_BIO}</p>
         </div>
-        <div className="my-8 max-w-4xl pb-24 text-[#F3EACC]">
-          <h2 className="text-3xl py-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000ff]">
+        <div className="my-8 max-w-4xl pb-12 text-[#F3EACC]">
+          <h2 className="text-3xl py-4 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000ff]">
             About This Site
           </h2>
           <p className="mb-6">
@@ -54,8 +54,8 @@ function About() {
             explore what’s next.
           </p>
         </div>
-        <div className="my-8 max-w-4xl pb-24 text-[#F3EACC]">
-          <h2 className="text-3xl py-6 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
+        <div className="my-8 max-w-4xl pb-12 text-[#F3EACC]">
+          <h2 className="text-3xl py-4 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
             Skills
           </h2>
           <ul className="list-disc list-inside pl-5 space-y-2">
