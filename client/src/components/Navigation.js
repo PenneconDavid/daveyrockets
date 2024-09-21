@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
-import logo from "../components/images/logo.jpg"; // Adjust the path to your logo image
-import "font-awesome/css/font-awesome.min.css"; // FontAwesome for the clock icon
+import logo from "../components/images/logo.jpg";
 
 const Navigation = () => {
   const { auth, handleLogout } = React.useContext(AuthContext);
@@ -26,46 +25,75 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="bg-[#282828] p-4 flex justify-between items-center flex-wrap">
+      <nav className="bg-[#282828] p-6 sm:p-8 flex flex-col sm:flex-row sm:justify-between items-center">
+        {/* Left Section - Logo and Title */}
         <div className="flex items-center mb-4 sm:mb-0">
-          <span className="text-[#F3EACC] font-bold text-lg mr-4">
+          <span className="text-white font-bold text-xl sm:text-2xl mr-4">
             &#123; David Seibold &#125;
           </span>
           <img
             src={logo}
             alt="David Seibold's personal logo"
-            className="w-8 h-8 sm:w-10 sm:h-10 rounded-full"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
           />
         </div>
-        <ul className="flex space-x-6 flex-col sm:flex-row sm:space-x-6">
+
+        {/* Center Section - City and Clock */}
+        <div className="text-white text-center mb-4 sm:mb-0">
+          <p className="font-bold text-lg sm:text-xl">San Diego, CA</p>
+          <p className="text-lg text-lime-400 font-mono transition-all duration-500 ease-in-out">
+            <i className="fa fa-clock-o mr-2"></i> {currentTime}
+          </p>
+        </div>
+
+        {/* Right Section - Navigation Links */}
+        <ul className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center sm:text-right">
           <li>
-            <Link to="/" className="text-[#F3EACC] hover:text-gray-400">
+            <Link
+              to="/"
+              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+            >
               Home
             </Link>
           </li>
           <li>
-            <Link to="/blogs" className="text-[#F3EACC] hover:text-gray-400">
+            <Link
+              to="/blogs"
+              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+            >
               Blogs
             </Link>
           </li>
           <li>
-            <Link to="/projects" className="text-[#F3EACC] hover:text-gray-400">
+            <Link
+              to="/projects"
+              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+            >
               Projects
             </Link>
           </li>
           <li>
-            <Link to="/about" className="text-[#F3EACC] hover:text-gray-400">
+            <Link
+              to="/about"
+              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+            >
               About
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="text-[#F3EACC] hover:text-gray-400">
+            <Link
+              to="/contact"
+              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+            >
               Contact
             </Link>
           </li>
           {!auth.isAuthenticated ? (
             <li>
-              <Link to="/login" className="text-[#F3EACC] hover:text-gray-400">
+              <Link
+                to="/login"
+                className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              >
                 Login
               </Link>
             </li>
@@ -74,7 +102,7 @@ const Navigation = () => {
               <li>
                 <Link
                   to="/admin-dashboard"
-                  className="text-[#F3EACC] hover:text-gray-400"
+                  className="text-white hover:text-gray-400 text-lg sm:text-xl"
                 >
                   Admin Dashboard
                 </Link>
@@ -82,7 +110,7 @@ const Navigation = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="text-[#F3EACC] hover:text-gray-400"
+                  className="text-white hover:text-gray-400 text-lg sm:text-xl"
                 >
                   Logout
                 </button>
@@ -90,13 +118,6 @@ const Navigation = () => {
             </>
           )}
         </ul>
-        {/* San Diego, CA and Time Section */}
-        <div className="text-[#F3EACC] text-center sm:text-right mt-4 sm:mt-0">
-          <p className="font-bold">San Diego, CA</p>
-          <p className="text-lg text-lime-400 font-mono transition-all duration-500 ease-in-out">
-            <i className="fa fa-clock-o mr-2"></i> {currentTime}
-          </p>
-        </div>
       </nav>
 
       {/* Centered medium-sized logo below the navigation bar */}
