@@ -41,10 +41,12 @@ const BlogItem = () => {
             blog ? `Read about ${blog.title}` : "Loading blog content..."
           }
         />
-        <meta
-          property="og:url"
-          content={`https://daveyrockets.me/blogs/${blog.id}`}
-        />
+        {blog && (
+          <meta
+            property="og:url"
+            content={`https://daveyrockets.me/blogs/${blog.id}`}
+          />
+        )}
       </Helmet>
 
       {loading ? (
