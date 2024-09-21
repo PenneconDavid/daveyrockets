@@ -32,13 +32,13 @@ function About() {
             Hi, I'm {CONTACT_NAME}
           </h1>
         </div>
-        <div className="my-8 md:my-16 max-w-4xl text-[#F3EACC]">
+        <div className="my-4 md:my-8 max-w-4xl text-[#F3EACC]">
           <h2 className="text-2xl md:text-3xl mb-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
             About Myself
           </h2>
           <p className="text-base md:text-lg">{CONTACT_BIO}</p>
         </div>
-        <div className="my-16 max-w-4xl pb-24 text-[#F3EACC]">
+        <div className="my-8 max-w-4xl pb-24 text-[#F3EACC]">
           <h2 className="text-3xl py-6 font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000ff]">
             About This Site
           </h2>
@@ -54,7 +54,7 @@ function About() {
             explore what’s next.
           </p>
         </div>
-        <div className="my-16 max-w-4xl pb-24 text-[#F3EACC]">
+        <div className="my-8 max-w-4xl pb-24 text-[#F3EACC]">
           <h2 className="text-3xl py-6 font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[#EFBD19] to-[#8000FF]">
             Skills
           </h2>
