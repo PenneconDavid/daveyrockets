@@ -125,7 +125,7 @@ const Navigation = () => {
         <img
           src={logo}
           alt="David Seibold's personal logo"
-          className="w-40 h-40 sm:w-80 sm:h-80 rounded-full md:shadow-4xl shadow-black"
+          className="w-40 h-40 sm:w-80 sm:h-80 rounded-full md:shadow-2xl shadow-lime-600"
         />
       </div>
     </>
