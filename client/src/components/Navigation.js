@@ -25,10 +25,10 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="bg-[#282828] p-6 sm:p-8 flex flex-col sm:flex-row sm:justify-between items-center">
+      <nav className="bg-[#282828] p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:justify-between">
         {/* Left Section - Logo and Title */}
         <div className="flex items-center mb-4 sm:mb-0">
-          <span className="text-white font-bold text-xl sm:text-2xl mr-4">
+          <span className="text-white font-bold text-2xl sm:text-3xl mr-4">
             &#123; David Seibold &#125;
           </span>
           <img
@@ -38,20 +38,12 @@ const Navigation = () => {
           />
         </div>
 
-        {/* Center Section - City and Clock */}
-        <div className="text-white text-center mb-4 sm:mb-0">
-          <p className="font-bold text-lg sm:text-xl">San Diego, CA</p>
-          <p className="text-lg text-lime-400 font-mono transition-all duration-500 ease-in-out">
-            <i className="fa fa-clock-o mr-2"></i> {currentTime}
-          </p>
-        </div>
-
-        {/* Right Section - Navigation Links */}
-        <ul className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 text-center sm:text-right">
+        {/* Center Section - Navigation Links */}
+        <ul className="flex flex-col sm:flex-row sm:justify-center sm:space-x-6 text-center sm:text-center">
           <li>
             <Link
               to="/"
-              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              className="text-white hover:text-gray-400 text-xl sm:text-2xl"
             >
               Home
             </Link>
@@ -59,7 +51,7 @@ const Navigation = () => {
           <li>
             <Link
               to="/blogs"
-              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              className="text-white hover:text-gray-400 text-xl sm:text-2xl"
             >
               Blogs
             </Link>
@@ -67,7 +59,7 @@ const Navigation = () => {
           <li>
             <Link
               to="/projects"
-              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              className="text-white hover:text-gray-400 text-xl sm:text-2xl"
             >
               Projects
             </Link>
@@ -75,7 +67,7 @@ const Navigation = () => {
           <li>
             <Link
               to="/about"
-              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              className="text-white hover:text-gray-400 text-xl sm:text-2xl"
             >
               About
             </Link>
@@ -83,7 +75,7 @@ const Navigation = () => {
           <li>
             <Link
               to="/contact"
-              className="text-white hover:text-gray-400 text-lg sm:text-xl"
+              className="text-white hover:text-gray-400 text-xl sm:text-2xl"
             >
               Contact
             </Link>
@@ -92,7 +84,7 @@ const Navigation = () => {
             <li>
               <Link
                 to="/login"
-                className="text-white hover:text-gray-400 text-lg sm:text-xl"
+                className="text-white hover:text-gray-400 text-xl sm:text-2xl"
               >
                 Login
               </Link>
@@ -102,7 +94,7 @@ const Navigation = () => {
               <li>
                 <Link
                   to="/admin-dashboard"
-                  className="text-white hover:text-gray-400 text-lg sm:text-xl"
+                  className="text-white hover:text-gray-400 text-xl sm:text-2xl"
                 >
                   Admin Dashboard
                 </Link>
@@ -110,7 +102,7 @@ const Navigation = () => {
               <li>
                 <button
                   onClick={handleLogout}
-                  className="text-white hover:text-gray-400 text-lg sm:text-xl"
+                  className="text-white hover:text-gray-400 text-xl sm:text-2xl"
                 >
                   Logout
                 </button>
@@ -118,6 +110,14 @@ const Navigation = () => {
             </>
           )}
         </ul>
+
+        {/* Right Section - City and Clock */}
+        <div className="text-white text-right mt-4 sm:mt-0">
+          <p className="font-bold text-2xl sm:text-3xl">San Diego, CA</p>
+          <p className="text-xl sm:text-3xl text-lime-400 font-mono transition-all duration-500 ease-in-out">
+            <i className="fa fa-clock-o mr-2"></i> {currentTime}
+          </p>
+        </div>
       </nav>
 
       {/* Centered medium-sized logo below the navigation bar */}
