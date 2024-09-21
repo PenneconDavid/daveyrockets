@@ -1,5 +1,4 @@
-const API_URL =
-  process.env.REACT_APP_API_URL || "https://daveyrocket-backend.vercel.app/api";
+const API_URL = process.env.REACT_APP_API_URL || "https://daveyrockets.me/api";
 export const PROXY_PORT = 3001;
 
 export default API_URL;
