@@ -43,7 +43,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="contact-form" id="contact-form">
+    <div className="contact-form bg-[#282828]" id="contact-form">
       {successMessage && (
         <div className="mb-4 text-green-600">{successMessage}</div>
       )}
